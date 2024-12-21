@@ -3,12 +3,14 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f4f4f4;
 }
 
 header {
     text-align: center;
     padding: 20px;
-    background-color: #f8f8f8;
+    background-color: #333;
+    color: #fff;
 }
 
 header img {
@@ -21,6 +23,7 @@ section {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 form {
@@ -36,7 +39,8 @@ input, select, button {
     margin: 10px 0;
     padding: 10px;
     font-size: 1em;
-    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
@@ -45,6 +49,8 @@ button {
     border: none;
     cursor: pointer;
     padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -54,6 +60,10 @@ button:hover {
 #kids-details {
     display: none;
     margin-top: 10px;
+}
+
+h2 {
+    color: #333;
 }
 
 /* Media Queries for Responsiveness */

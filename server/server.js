@@ -6,24 +6,32 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Replace <password> with your actual MongoDB password
 const dbURI = 'mongodb+srv://manankadel:12345677@communitycluster.aqifs.mongodb.net/community?retryWrites=true&w=majority';
+
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
-// Define a schema and model for storing data
+// Define schema and model
 const memberSchema = new mongoose.Schema({
     name: String,
     dob: Date,
     address: String,
     education: String,
     mobile: String,
-    spouse_name: String,
-    spouse_dob: Date,
-    spouse_age: Number,
-    spouse_gotra: String,
-    kids: Array,
+    married: Boolean,
+    spouse: {
+        name: String,
+        dob: Date,
+        age: Number,
+        gotra: String,
+    },
+    kids: [{
+        name: String,
+        dob: Date,
+        education: String,
+        marital_status: String
+    }],
     occupation: {
         company_name: String,
         position: String,
@@ -38,11 +46,46 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.post('/submit', (req, res) => {
-    const memberData = req.body;
-    const newMember = new Member(memberData);
+    const {
+        name, dob, address, education, mobile, married,
+        spouse_name, spouse_dob, spouse_age, spouse_gotra,
+        number_of_kids, company_name, position, experience, package
+    } = req.body;
+
+    const kids = [];
+    for (let i = 0; i < number_of_kids; i++) {
+        kids.push({
+            name: req.body[`kid_name_${i}`],
+            dob: req.body[`kid_dob_${i}`],
+            education: req.body[`kid_education_${i}`],
+            marital_status: req.body[`kid_marital_status_${i}`]
+        });
+    }
+
+    const newMember = new Member({
+        name,
+        dob,
+        address,
+        education,
+        mobile,
+        married: married === 'yes',
+        spouse: married === 'yes' ? {
+            name: spouse_name,
+            dob: spouse_dob,
+            age: spouse_age,
+            gotra: spouse_gotra
+        } : null,
+        kids,
+        occupation: {
+            company_name,
+            position,
+            experience,
+            package
+        }
+    });
 
     newMember.save()
-        .then(() => res.send(`Welcome, ${memberData.name}!`))
+        .then(() => res.send(`Welcome, ${name}! Your data has been saved.`))
         .catch(err => res.status(500).send('Error storing data'));
 });
 
