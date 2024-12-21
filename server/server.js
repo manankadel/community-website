@@ -6,9 +6,9 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const dbURI = 'mongodb+srv://manankadel:12345677@communitycluster.aqifs.mongodb.net/community?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://manankadel:12345677@communitycluster.aqifs.mongodb.net/community?retryWrites=true&w=majority&appName=CommunityCluster';
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
