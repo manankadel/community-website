@@ -28,10 +28,15 @@ form {
     flex-direction: column;
 }
 
+form label {
+    margin-top: 10px;
+}
+
 input, select, button {
-    margin: 5px 0;
+    margin: 10px 0;
     padding: 10px;
     font-size: 1em;
+    width: 100%;
 }
 
 button {
@@ -39,10 +44,16 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    padding: 15px;
 }
 
 button:hover {
     background-color: #45a049;
+}
+
+#kids-details {
+    display: none;
+    margin-top: 10px;
 }
 
 /* Media Queries for Responsiveness */
