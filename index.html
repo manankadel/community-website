@@ -4,38 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Page</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <img src="images/logo.png" alt="Community Logo">
-        <h1>Community Name</h1>
+    <header class="header-flex">
+        <img src="public/images/logo.png" alt="Community Logo" height="180">
+        <h1>|| जय अजमीढ़ जी || <br>श्री मैढ़ क्षत्रिय स्वर्णकार समाज </h1>
     </header>
     <section id="introduction">
-        <p>Welcome to our community!</p>
+        <p>Welcome to Swarnkar Samaj!</p>
     </section>
     <section id="form">
         <h2>Join Our Community</h2>
         <form id="communityForm" action="/submit" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
-
+            <br>
             <label for="dob">Date of Birth:</label>
             <input type="date" id="dob" name="dob" required>
-
+            <br>
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" placeholder="Address" required>
-
+            <br>
             <label for="education">Education:</label>
             <select id="education" name="education" required>
                 <option value="10th">10th</option>
                 <option value="12th">12th</option>
                 <option value="graduation">Graduation</option>
             </select>
-
+            <br>
             <label for="mobile">Mobile Number:</label>
             <input type="text" id="mobile" name="mobile" placeholder="Mobile Number" required>
-
+            <br>
             <label>Are you married?</label>
             <div>
                 <input type="radio" id="married_yes" name="married" value="yes" onclick="showSpouseDetails(true)">
@@ -43,21 +44,21 @@
                 <input type="radio" id="married_no" name="married" value="no" onclick="showSpouseDetails(false)">
                 <label for="married_no">No</label>
             </div>
-
+            <br>
             <div id="spouse-details" style="display: none;">
                 <label for="spouse_name">Spouse Name:</label>
                 <input type="text" id="spouse_name" name="spouse_name" placeholder="Spouse Name">
-
+                <br>
                 <label for="spouse_dob">Spouse Date of Birth:</label>
                 <input type="date" id="spouse_dob" name="spouse_dob">
-
+                <br>
                 <label for="spouse_age">Spouse Age:</label>
                 <input type="number" id="spouse_age" name="spouse_age" placeholder="Spouse Age">
-
+                <br>
                 <label for="spouse_gotra">Spouse Gotra:</label>
                 <input type="text" id="spouse_gotra" name="spouse_gotra" placeholder="Spouse Gotra">
             </div>
-
+            <br>
             <label>Do you have kids?</label>
             <div>
                 <input type="radio" id="kids_yes" name="kids" value="yes" onclick="showKidsDetails(true)">
@@ -65,25 +66,25 @@
                 <input type="radio" id="kids_no" name="kids" value="no" onclick="showKidsDetails(false)">
                 <label for="kids_no">No</label>
             </div>
-
+            <br>
             <div id="kids-details" style="display: none;">
                 <label for="number_of_kids">Number of Kids:</label>
                 <input type="number" id="number_of_kids" name="number_of_kids" placeholder="Number of Kids">
                 <div id="kids-info"></div>
             </div>
-
+            <br>
             <label for="company_name">Company Name:</label>
             <input type="text" id="company_name" name="company_name" placeholder="Company Name">
-
+            <br>
             <label for="position">Position:</label>
             <input type="text" id="position" name="position" placeholder="Position">
-
+            <br>
             <label for="experience">Experience (years):</label>
             <input type="number" id="experience" name="experience" placeholder="Experience (years)">
-
+            <br>
             <label for="package">Package (per annum):</label>
             <input type="number" id="package" name="package" placeholder="Package (per annum)">
-
+            <br>
             <button type="submit">Submit</button>
         </form>
     </section>
@@ -91,6 +92,6 @@
         <h2 id="welcome-name">Welcome!</h2>
         <p>Thank you for joining our community.</p>
     </section>
-    <script src="js/script.js"></script>
+    <script src="public/js/script.js"></script>
 </body>
 </html>
