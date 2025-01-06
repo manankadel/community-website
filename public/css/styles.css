@@ -7,10 +7,23 @@ body {
 }
 
 header {
-    text-align: center;
     padding: 20px;
     background-color: #333;
     color: #fff;
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+}
+
+.header-flex img {
+    margin-right: 20px; /* Add space between the logo and the text */
+}
+
+.header-flex h1 {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 header img {
