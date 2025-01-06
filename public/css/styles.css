@@ -15,6 +15,7 @@ header {
 .header-flex {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
 .header-flex img {
@@ -81,6 +82,21 @@ h2 {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+
+    .header-flex img {
+        margin-right: 0; /* Remove margin for centered items */
+        margin-bottom: 10px; /* Add space below the logo */
+    }
+
+    .header-flex h1 {
+        white-space: normal; /* Allow text to wrap */
+        text-align: center;
+    }
+
     body {
         margin: 0;
         padding: 0;
@@ -104,13 +120,20 @@ h2 {
 }
 
 @media (max-width: 480px) {
-    header img {
+    .header-flex {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+
+    .header-flex img {
         max-width: 60px;
     }
+
     section {
         margin: 5px;
         padding: 10px;
     }
+
     input, select, button {
         font-size: 0.8em;
     }
